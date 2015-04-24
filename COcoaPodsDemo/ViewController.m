@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import <UIImageView+WebCache.h>
 
 @interface ViewController ()
 
@@ -17,7 +18,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+	//[_imageView sd_setImageWithURL:[NSURL URLWithString:]];
+    [_imageView sd_setImageWithURL:[NSURL URLWithString:@"http://img0.bdstatic.com/img/image/shouye/mxxtf-9636210599.jpg"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        
+    }];
+    _imageView.contentMode = UIViewContentModeScaleAspectFit;
 }
 
 - (void)didReceiveMemoryWarning
